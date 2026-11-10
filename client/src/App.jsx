@@ -4,6 +4,7 @@ import Login from './components/Login';
 import CreateProject from './components/CreateProject';
 import ProjectList from './components/ProjectList';
 import ProjectMembers from './components/ProjectMembers';
+import ProjectBacklog from './components/ProjectBacklog';
 
 function App() {
   //which screen is showing
@@ -16,6 +17,7 @@ function App() {
         <button onClick={() => setView("create")}>Create Project</button>
         <button onClick={() => setView("projects")}>Projects</button>
         <button onClick={() => setView("members")}>Project Members</button>
+        <button onClick={() => setView("backlog")}>Backlog</button>
       </nav>
       <hr />
 
@@ -29,8 +31,10 @@ function App() {
       {view === "create" && <CreateProject />}
       {view === "projects" && <ProjectList />}
       {view === "members" && <ProjectMembers />}
+      {view === "backlog" && <ProjectBacklog />}
     </div>
   );
 }
 
 export default App;
+
