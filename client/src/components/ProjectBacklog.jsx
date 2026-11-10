@@ -26,7 +26,8 @@ function ProjectBacklog() {
   const [createForm, setCreateForm] = useState(emptyForm);
   const [editingId, setEditingId] = useState(null);
   const [editForm, setEditForm] = useState(emptyForm);
- const [message, setMessage] = useState("");
+ 
+  const [message, setMessage] = useState("");
   const [error, setError] = useState("");
 
 
@@ -49,8 +50,7 @@ useEffect(() => {
   }, []);
 
 
-  //load members 
-  //
+  //load members and stories when the project is selected
     useEffect(() => {
     if (!selectedProjectId) return;
     let cancelled = false;
@@ -218,7 +218,7 @@ if (!window.confirm(`Delete the story "${story.title}"?`)) return;
       if (!response.ok) throw new Error(data.message || "Could not delete story");
  
       setMessage(data.message || "Story deleted successfully");
-      
+
       //close details/edit if they were showing the deleted story
       if (detailsId === story._id) setDetailsId(null);
       if (editingId === story._id) cancelEdit();
